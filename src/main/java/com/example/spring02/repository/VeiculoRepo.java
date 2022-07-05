@@ -18,7 +18,6 @@ public class VeiculoRepo {
     private final String linkFile = "src/main/resources/dados.json";
 
     public Veiculo getVeiculo(String placa) {
-
         List<Veiculo> lista;
         ObjectMapper mapper = new ObjectMapper();
         try {
@@ -32,12 +31,8 @@ public class VeiculoRepo {
         } catch (Exception ex) {
             System.out.println("Erro");
         }
-
         throw new NotFoundException("Veiculo não localizado");
-        // return null;
     }
-
-
 
     public List<Veiculo> getAllVeiculo() {
         List<Veiculo> lista = null;
@@ -46,11 +41,9 @@ public class VeiculoRepo {
             lista = Arrays.asList
                     (mapper.readValue(new File(linkFile), Veiculo[].class));
             return lista;
-
         } catch (Exception ex) {
             System.out.println("Erro");
         }
-
         return lista;
     }
 
