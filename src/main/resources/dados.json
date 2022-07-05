@@ -1,12 +1,13 @@
-[
-  {
-    "placa": "ABC 123",
-    "modelo": "Fusca",
-    "valor": 13000
-  },
-  {
-    "placa": "DEF 123",
-    "modelo": "Opala",
-    "valor": 31000
-  }
-]
+[ {
+  "placa" : "ABC 123",
+  "modelo" : "Fusca",
+  "valor" : 13000.0
+}, {
+  "placa" : "DEF 456",
+  "modelo" : "Palio",
+  "valor" : 17000.0
+}, {
+  "placa" : "XYZ 987",
+  "modelo" : "Civic",
+  "valor" : 45000.0
+} ]

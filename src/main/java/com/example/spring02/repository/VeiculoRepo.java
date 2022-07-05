@@ -18,7 +18,7 @@ public class VeiculoRepo {
 
     public Veiculo getVeiculo(String placa) {
 
-        List<Veiculo> lista = null;
+        List<Veiculo> lista;
         ObjectMapper mapper = new ObjectMapper();
         try {
             lista = Arrays.asList
@@ -42,6 +42,8 @@ public class VeiculoRepo {
         try{
             lista = Arrays.asList
                     (mapper.readValue(new File(linkFile), Veiculo[].class));
+            return lista;
+
         } catch (Exception ex) {
             System.out.println("Erro");
         }
