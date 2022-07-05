@@ -1,5 +1,6 @@
 package com.example.spring02.repository;
 
+import com.example.spring02.exception.NotFoundException;
 import com.example.spring02.models.Veiculo;
 import com.fasterxml.jackson.core.util.DefaultPrettyPrinter;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -31,7 +32,9 @@ public class VeiculoRepo {
         } catch (Exception ex) {
             System.out.println("Erro");
         }
-        return null;
+
+        throw new NotFoundException("Veiculo não localizado");
+        // return null;
     }
 
 
@@ -64,8 +67,6 @@ public class VeiculoRepo {
 
         } catch (Exception ex) {
             System.out.println("Erro");
-
         }
-
     }
 }
