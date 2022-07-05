@@ -6,6 +6,7 @@ import com.example.spring02.repository.VeiculoRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -26,6 +27,33 @@ public class VeiculoServiceImp implements VeiculoService{
        return listaVeiculos.stream()
                .map(VeiculoDto::new)
                .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<VeiculoDto> getAllOrderByValor() {
+        List<Veiculo> listaVeiculos = repo.getAllVeiculo();
+        return listaVeiculos.stream()
+                .sorted()
+                .map(VeiculoDto::new)
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<VeiculoDto> getAllOrderByModelo() {
+        List<Veiculo> listaVeiculos = repo.getAllVeiculo();
+        return listaVeiculos.stream()
+                .sorted(Comparator.comparing(Veiculo::getModelo))
+                .map(VeiculoDto::new)
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<VeiculoDto> getByModelo(String modelo) {
+        List<Veiculo> listaVeiculos = repo.getAllVeiculo();
+        return listaVeiculos.stream()
+                .filter(v -> v.getModelo().equalsIgnoreCase(modelo))
+                .map(VeiculoDto::new)
+                .collect(Collectors.toList());
     }
 
     @Override

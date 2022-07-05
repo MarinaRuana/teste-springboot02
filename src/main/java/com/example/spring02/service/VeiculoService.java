@@ -11,5 +11,11 @@ public interface VeiculoService {
 
     List<VeiculoDto> getAllVeiculo();
 
+    List<VeiculoDto> getAllOrderByValor();
+
+    List<VeiculoDto> getAllOrderByModelo();
+
+    List<VeiculoDto> getByModelo(String modelo);
+
     void saveVeiculo(Veiculo novoVeiculo);
 }
